@@ -45,7 +45,6 @@ public class CFIntBuffSchema
 {
 
 	protected ICFSecClusterTable tableCluster;
-	protected ICFSecHostNodeTable tableHostNode;
 	protected ICFSecISOCcyTable tableISOCcy;
 	protected ICFSecISOCtryTable tableISOCtry;
 	protected ICFSecISOCtryCcyTable tableISOCtryCcy;
@@ -56,19 +55,21 @@ public class CFIntBuffSchema
 	protected ICFIntMajorVersionTable tableMajorVersion;
 	protected ICFIntMimeTypeTable tableMimeType;
 	protected ICFIntMinorVersionTable tableMinorVersion;
-	protected ICFSecSecDeviceTable tableSecDevice;
-	protected ICFSecSecGroupTable tableSecGroup;
-	protected ICFSecSecGrpIncTable tableSecGrpInc;
-	protected ICFSecSecGrpMembTable tableSecGrpMemb;
+	protected ICFSecSecClusGrpTable tableSecClusGrp;
+	protected ICFSecSecClusGrpIncTable tableSecClusGrpInc;
+	protected ICFSecSecClusGrpMembTable tableSecClusGrpMemb;
 	protected ICFSecSecSessionTable tableSecSession;
+	protected ICFSecSecSysGrpTable tableSecSysGrp;
+	protected ICFSecSecSysGrpIncTable tableSecSysGrpInc;
+	protected ICFSecSecSysGrpMembTable tableSecSysGrpMemb;
+	protected ICFSecSecTentGrpTable tableSecTentGrp;
+	protected ICFSecSecTentGrpIncTable tableSecTentGrpInc;
+	protected ICFSecSecTentGrpMembTable tableSecTentGrpMemb;
 	protected ICFSecSecUserTable tableSecUser;
-	protected ICFSecServiceTable tableService;
-	protected ICFSecServiceTypeTable tableServiceType;
+	protected ICFSecSecUserPWHistoryTable tableSecUserPWHistory;
+	protected ICFSecSecUserPasswordTable tableSecUserPassword;
 	protected ICFIntSubProjectTable tableSubProject;
 	protected ICFSecSysClusterTable tableSysCluster;
-	protected ICFSecTSecGroupTable tableTSecGroup;
-	protected ICFSecTSecGrpIncTable tableTSecGrpInc;
-	protected ICFSecTSecGrpMembTable tableTSecGrpMemb;
 	protected ICFSecTenantTable tableTenant;
 	protected ICFIntTldTable tableTld;
 	protected ICFIntTopDomainTable tableTopDomain;
@@ -76,7 +77,6 @@ public class CFIntBuffSchema
 	protected ICFIntURLProtocolTable tableURLProtocol;
 
 	protected ICFSecClusterFactory factoryCluster;
-	protected ICFSecHostNodeFactory factoryHostNode;
 	protected ICFSecISOCcyFactory factoryISOCcy;
 	protected ICFSecISOCtryFactory factoryISOCtry;
 	protected ICFSecISOCtryCcyFactory factoryISOCtryCcy;
@@ -87,19 +87,21 @@ public class CFIntBuffSchema
 	protected ICFIntMajorVersionFactory factoryMajorVersion;
 	protected ICFIntMimeTypeFactory factoryMimeType;
 	protected ICFIntMinorVersionFactory factoryMinorVersion;
-	protected ICFSecSecDeviceFactory factorySecDevice;
-	protected ICFSecSecGroupFactory factorySecGroup;
-	protected ICFSecSecGrpIncFactory factorySecGrpInc;
-	protected ICFSecSecGrpMembFactory factorySecGrpMemb;
+	protected ICFSecSecClusGrpFactory factorySecClusGrp;
+	protected ICFSecSecClusGrpIncFactory factorySecClusGrpInc;
+	protected ICFSecSecClusGrpMembFactory factorySecClusGrpMemb;
 	protected ICFSecSecSessionFactory factorySecSession;
+	protected ICFSecSecSysGrpFactory factorySecSysGrp;
+	protected ICFSecSecSysGrpIncFactory factorySecSysGrpInc;
+	protected ICFSecSecSysGrpMembFactory factorySecSysGrpMemb;
+	protected ICFSecSecTentGrpFactory factorySecTentGrp;
+	protected ICFSecSecTentGrpIncFactory factorySecTentGrpInc;
+	protected ICFSecSecTentGrpMembFactory factorySecTentGrpMemb;
 	protected ICFSecSecUserFactory factorySecUser;
-	protected ICFSecServiceFactory factoryService;
-	protected ICFSecServiceTypeFactory factoryServiceType;
+	protected ICFSecSecUserPWHistoryFactory factorySecUserPWHistory;
+	protected ICFSecSecUserPasswordFactory factorySecUserPassword;
 	protected ICFIntSubProjectFactory factorySubProject;
 	protected ICFSecSysClusterFactory factorySysCluster;
-	protected ICFSecTSecGroupFactory factoryTSecGroup;
-	protected ICFSecTSecGrpIncFactory factoryTSecGrpInc;
-	protected ICFSecTSecGrpMembFactory factoryTSecGrpMemb;
 	protected ICFSecTenantFactory factoryTenant;
 	protected ICFIntTldFactory factoryTld;
 	protected ICFIntTopDomainFactory factoryTopDomain;
@@ -272,7 +274,6 @@ public class CFIntBuffSchema
 	public CFIntBuffSchema() {
 
 	tableCluster = null; // new CFSecBuffClusterTable();
-	tableHostNode = null; // new CFSecBuffHostNodeTable();
 	tableISOCcy = null; // new CFSecBuffISOCcyTable();
 	tableISOCtry = null; // new CFSecBuffISOCtryTable();
 	tableISOCtryCcy = null; // new CFSecBuffISOCtryCcyTable();
@@ -283,19 +284,21 @@ public class CFIntBuffSchema
 	tableMajorVersion = null; // new CFIntBuffMajorVersionTable();
 	tableMimeType = null; // new CFIntBuffMimeTypeTable();
 	tableMinorVersion = null; // new CFIntBuffMinorVersionTable();
-	tableSecDevice = null; // new CFSecBuffSecDeviceTable();
-	tableSecGroup = null; // new CFSecBuffSecGroupTable();
-	tableSecGrpInc = null; // new CFSecBuffSecGrpIncTable();
-	tableSecGrpMemb = null; // new CFSecBuffSecGrpMembTable();
+	tableSecClusGrp = null; // new CFSecBuffSecClusGrpTable();
+	tableSecClusGrpInc = null; // new CFSecBuffSecClusGrpIncTable();
+	tableSecClusGrpMemb = null; // new CFSecBuffSecClusGrpMembTable();
 	tableSecSession = null; // new CFSecBuffSecSessionTable();
+	tableSecSysGrp = null; // new CFSecBuffSecSysGrpTable();
+	tableSecSysGrpInc = null; // new CFSecBuffSecSysGrpIncTable();
+	tableSecSysGrpMemb = null; // new CFSecBuffSecSysGrpMembTable();
+	tableSecTentGrp = null; // new CFSecBuffSecTentGrpTable();
+	tableSecTentGrpInc = null; // new CFSecBuffSecTentGrpIncTable();
+	tableSecTentGrpMemb = null; // new CFSecBuffSecTentGrpMembTable();
 	tableSecUser = null; // new CFSecBuffSecUserTable();
-	tableService = null; // new CFSecBuffServiceTable();
-	tableServiceType = null; // new CFSecBuffServiceTypeTable();
+	tableSecUserPWHistory = null; // new CFSecBuffSecUserPWHistoryTable();
+	tableSecUserPassword = null; // new CFSecBuffSecUserPasswordTable();
 	tableSubProject = null; // new CFIntBuffSubProjectTable();
 	tableSysCluster = null; // new CFSecBuffSysClusterTable();
-	tableTSecGroup = null; // new CFSecBuffTSecGroupTable();
-	tableTSecGrpInc = null; // new CFSecBuffTSecGrpIncTable();
-	tableTSecGrpMemb = null; // new CFSecBuffTSecGrpMembTable();
 	tableTenant = null; // new CFSecBuffTenantTable();
 	tableTld = null; // new CFIntBuffTldTable();
 	tableTopDomain = null; // new CFIntBuffTopDomainTable();
@@ -303,7 +306,6 @@ public class CFIntBuffSchema
 	tableURLProtocol = null; // new CFIntBuffURLProtocolTable();
 
 	factoryCluster = new CFSecBuffClusterDefaultFactory();
-	factoryHostNode = new CFSecBuffHostNodeDefaultFactory();
 	factoryISOCcy = new CFSecBuffISOCcyDefaultFactory();
 	factoryISOCtry = new CFSecBuffISOCtryDefaultFactory();
 	factoryISOCtryCcy = new CFSecBuffISOCtryCcyDefaultFactory();
@@ -314,19 +316,21 @@ public class CFIntBuffSchema
 	factoryMajorVersion = new CFIntBuffMajorVersionDefaultFactory();
 	factoryMimeType = new CFIntBuffMimeTypeDefaultFactory();
 	factoryMinorVersion = new CFIntBuffMinorVersionDefaultFactory();
-	factorySecDevice = new CFSecBuffSecDeviceDefaultFactory();
-	factorySecGroup = new CFSecBuffSecGroupDefaultFactory();
-	factorySecGrpInc = new CFSecBuffSecGrpIncDefaultFactory();
-	factorySecGrpMemb = new CFSecBuffSecGrpMembDefaultFactory();
+	factorySecClusGrp = new CFSecBuffSecClusGrpDefaultFactory();
+	factorySecClusGrpInc = new CFSecBuffSecClusGrpIncDefaultFactory();
+	factorySecClusGrpMemb = new CFSecBuffSecClusGrpMembDefaultFactory();
 	factorySecSession = new CFSecBuffSecSessionDefaultFactory();
+	factorySecSysGrp = new CFSecBuffSecSysGrpDefaultFactory();
+	factorySecSysGrpInc = new CFSecBuffSecSysGrpIncDefaultFactory();
+	factorySecSysGrpMemb = new CFSecBuffSecSysGrpMembDefaultFactory();
+	factorySecTentGrp = new CFSecBuffSecTentGrpDefaultFactory();
+	factorySecTentGrpInc = new CFSecBuffSecTentGrpIncDefaultFactory();
+	factorySecTentGrpMemb = new CFSecBuffSecTentGrpMembDefaultFactory();
 	factorySecUser = new CFSecBuffSecUserDefaultFactory();
-	factoryService = new CFSecBuffServiceDefaultFactory();
-	factoryServiceType = new CFSecBuffServiceTypeDefaultFactory();
+	factorySecUserPWHistory = new CFSecBuffSecUserPWHistoryDefaultFactory();
+	factorySecUserPassword = new CFSecBuffSecUserPasswordDefaultFactory();
 	factorySubProject = new CFIntBuffSubProjectDefaultFactory();
 	factorySysCluster = new CFSecBuffSysClusterDefaultFactory();
-	factoryTSecGroup = new CFSecBuffTSecGroupDefaultFactory();
-	factoryTSecGrpInc = new CFSecBuffTSecGrpIncDefaultFactory();
-	factoryTSecGrpMemb = new CFSecBuffTSecGrpMembDefaultFactory();
 	factoryTenant = new CFSecBuffTenantDefaultFactory();
 	factoryTld = new CFIntBuffTldDefaultFactory();
 	factoryTopDomain = new CFIntBuffTopDomainDefaultFactory();
@@ -437,17 +441,6 @@ public class CFIntBuffSchema
 	}
 
 	/**
-	 *	Get the next ServiceTypeIdGen identifier.
-	 *
-	 *	@return	The next ServiceTypeIdGen identifier.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public CFLibDbKeyHash256 nextServiceTypeIdGen() {
-		return( new CFLibDbKeyHash256(0) );
-	}
-
-	/**
 	 *	Get the next TenantIdGen identifier.
 	 *
 	 *	@return	The next TenantIdGen identifier.
@@ -459,90 +452,35 @@ public class CFIntBuffSchema
 	}
 
 	/**
-	 *	Get the next HostNodeIdGen identifier.
+	 *	Get the next SecSysGrpIdGen identifier.
 	 *
-	 *	@return	The next HostNodeIdGen identifier.
+	 *	@return	The next SecSysGrpIdGen identifier.
 	 *
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFLibDbKeyHash256 nextHostNodeIdGen() {
+	public CFLibDbKeyHash256 nextSecSysGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
 
 	/**
-	 *	Get the next SecGroupIdGen identifier.
+	 *	Get the next SecClusGrpIdGen identifier.
 	 *
-	 *	@return	The next SecGroupIdGen identifier.
+	 *	@return	The next SecClusGrpIdGen identifier.
 	 *
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFLibDbKeyHash256 nextSecGroupIdGen() {
+	public CFLibDbKeyHash256 nextSecClusGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
 
 	/**
-	 *	Get the next SecGrpIncIdGen identifier.
+	 *	Get the next SecTentGrpIdGen identifier.
 	 *
-	 *	@return	The next SecGrpIncIdGen identifier.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public CFLibDbKeyHash256 nextSecGrpIncIdGen() {
-		return( new CFLibDbKeyHash256(0) );
-	}
-
-	/**
-	 *	Get the next SecGrpMembIdGen identifier.
-	 *
-	 *	@return	The next SecGrpMembIdGen identifier.
+	 *	@return	The next SecTentGrpIdGen identifier.
 	 *
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFLibDbKeyHash256 nextSecGrpMembIdGen() {
-		return( new CFLibDbKeyHash256(0) );
-	}
-
-	/**
-	 *	Get the next ServiceIdGen identifier.
-	 *
-	 *	@return	The next ServiceIdGen identifier.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public CFLibDbKeyHash256 nextServiceIdGen() {
-		return( new CFLibDbKeyHash256(0) );
-	}
-
-	/**
-	 *	Get the next TSecGroupIdGen identifier.
-	 *
-	 *	@return	The next TSecGroupIdGen identifier.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public CFLibDbKeyHash256 nextTSecGroupIdGen() {
-		return( new CFLibDbKeyHash256(0) );
-	}
-
-	/**
-	 *	Get the next TSecGrpIncIdGen identifier.
-	 *
-	 *	@return	The next TSecGrpIncIdGen identifier.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public CFLibDbKeyHash256 nextTSecGrpIncIdGen() {
-		return( new CFLibDbKeyHash256(0) );
-	}
-
-	/**
-	 *	Get the next TSecGrpMembIdGen identifier.
-	 *
-	 *	@return	The next TSecGrpMembIdGen identifier.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public CFLibDbKeyHash256 nextTSecGrpMembIdGen() {
+	public CFLibDbKeyHash256 nextSecTentGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
 
@@ -637,22 +575,6 @@ public class CFIntBuffSchema
 
 	public void setFactoryCluster( ICFSecClusterFactory value ) {
 		factoryCluster = value;
-	}
-
-	public ICFSecHostNodeTable getTableHostNode() {
-		return( tableHostNode );
-	}
-
-	public void setTableHostNode( ICFSecHostNodeTable value ) {
-		tableHostNode = value;
-	}
-
-	public ICFSecHostNodeFactory getFactoryHostNode() {
-		return( factoryHostNode );
-	}
-
-	public void setFactoryHostNode( ICFSecHostNodeFactory value ) {
-		factoryHostNode = value;
 	}
 
 	public ICFSecISOCcyTable getTableISOCcy() {
@@ -815,68 +737,52 @@ public class CFIntBuffSchema
 		factoryMinorVersion = value;
 	}
 
-	public ICFSecSecDeviceTable getTableSecDevice() {
-		return( tableSecDevice );
+	public ICFSecSecClusGrpTable getTableSecClusGrp() {
+		return( tableSecClusGrp );
 	}
 
-	public void setTableSecDevice( ICFSecSecDeviceTable value ) {
-		tableSecDevice = value;
+	public void setTableSecClusGrp( ICFSecSecClusGrpTable value ) {
+		tableSecClusGrp = value;
 	}
 
-	public ICFSecSecDeviceFactory getFactorySecDevice() {
-		return( factorySecDevice );
+	public ICFSecSecClusGrpFactory getFactorySecClusGrp() {
+		return( factorySecClusGrp );
 	}
 
-	public void setFactorySecDevice( ICFSecSecDeviceFactory value ) {
-		factorySecDevice = value;
+	public void setFactorySecClusGrp( ICFSecSecClusGrpFactory value ) {
+		factorySecClusGrp = value;
 	}
 
-	public ICFSecSecGroupTable getTableSecGroup() {
-		return( tableSecGroup );
+	public ICFSecSecClusGrpIncTable getTableSecClusGrpInc() {
+		return( tableSecClusGrpInc );
 	}
 
-	public void setTableSecGroup( ICFSecSecGroupTable value ) {
-		tableSecGroup = value;
+	public void setTableSecClusGrpInc( ICFSecSecClusGrpIncTable value ) {
+		tableSecClusGrpInc = value;
 	}
 
-	public ICFSecSecGroupFactory getFactorySecGroup() {
-		return( factorySecGroup );
+	public ICFSecSecClusGrpIncFactory getFactorySecClusGrpInc() {
+		return( factorySecClusGrpInc );
 	}
 
-	public void setFactorySecGroup( ICFSecSecGroupFactory value ) {
-		factorySecGroup = value;
+	public void setFactorySecClusGrpInc( ICFSecSecClusGrpIncFactory value ) {
+		factorySecClusGrpInc = value;
 	}
 
-	public ICFSecSecGrpIncTable getTableSecGrpInc() {
-		return( tableSecGrpInc );
+	public ICFSecSecClusGrpMembTable getTableSecClusGrpMemb() {
+		return( tableSecClusGrpMemb );
 	}
 
-	public void setTableSecGrpInc( ICFSecSecGrpIncTable value ) {
-		tableSecGrpInc = value;
+	public void setTableSecClusGrpMemb( ICFSecSecClusGrpMembTable value ) {
+		tableSecClusGrpMemb = value;
 	}
 
-	public ICFSecSecGrpIncFactory getFactorySecGrpInc() {
-		return( factorySecGrpInc );
+	public ICFSecSecClusGrpMembFactory getFactorySecClusGrpMemb() {
+		return( factorySecClusGrpMemb );
 	}
 
-	public void setFactorySecGrpInc( ICFSecSecGrpIncFactory value ) {
-		factorySecGrpInc = value;
-	}
-
-	public ICFSecSecGrpMembTable getTableSecGrpMemb() {
-		return( tableSecGrpMemb );
-	}
-
-	public void setTableSecGrpMemb( ICFSecSecGrpMembTable value ) {
-		tableSecGrpMemb = value;
-	}
-
-	public ICFSecSecGrpMembFactory getFactorySecGrpMemb() {
-		return( factorySecGrpMemb );
-	}
-
-	public void setFactorySecGrpMemb( ICFSecSecGrpMembFactory value ) {
-		factorySecGrpMemb = value;
+	public void setFactorySecClusGrpMemb( ICFSecSecClusGrpMembFactory value ) {
+		factorySecClusGrpMemb = value;
 	}
 
 	public ICFSecSecSessionTable getTableSecSession() {
@@ -895,6 +801,102 @@ public class CFIntBuffSchema
 		factorySecSession = value;
 	}
 
+	public ICFSecSecSysGrpTable getTableSecSysGrp() {
+		return( tableSecSysGrp );
+	}
+
+	public void setTableSecSysGrp( ICFSecSecSysGrpTable value ) {
+		tableSecSysGrp = value;
+	}
+
+	public ICFSecSecSysGrpFactory getFactorySecSysGrp() {
+		return( factorySecSysGrp );
+	}
+
+	public void setFactorySecSysGrp( ICFSecSecSysGrpFactory value ) {
+		factorySecSysGrp = value;
+	}
+
+	public ICFSecSecSysGrpIncTable getTableSecSysGrpInc() {
+		return( tableSecSysGrpInc );
+	}
+
+	public void setTableSecSysGrpInc( ICFSecSecSysGrpIncTable value ) {
+		tableSecSysGrpInc = value;
+	}
+
+	public ICFSecSecSysGrpIncFactory getFactorySecSysGrpInc() {
+		return( factorySecSysGrpInc );
+	}
+
+	public void setFactorySecSysGrpInc( ICFSecSecSysGrpIncFactory value ) {
+		factorySecSysGrpInc = value;
+	}
+
+	public ICFSecSecSysGrpMembTable getTableSecSysGrpMemb() {
+		return( tableSecSysGrpMemb );
+	}
+
+	public void setTableSecSysGrpMemb( ICFSecSecSysGrpMembTable value ) {
+		tableSecSysGrpMemb = value;
+	}
+
+	public ICFSecSecSysGrpMembFactory getFactorySecSysGrpMemb() {
+		return( factorySecSysGrpMemb );
+	}
+
+	public void setFactorySecSysGrpMemb( ICFSecSecSysGrpMembFactory value ) {
+		factorySecSysGrpMemb = value;
+	}
+
+	public ICFSecSecTentGrpTable getTableSecTentGrp() {
+		return( tableSecTentGrp );
+	}
+
+	public void setTableSecTentGrp( ICFSecSecTentGrpTable value ) {
+		tableSecTentGrp = value;
+	}
+
+	public ICFSecSecTentGrpFactory getFactorySecTentGrp() {
+		return( factorySecTentGrp );
+	}
+
+	public void setFactorySecTentGrp( ICFSecSecTentGrpFactory value ) {
+		factorySecTentGrp = value;
+	}
+
+	public ICFSecSecTentGrpIncTable getTableSecTentGrpInc() {
+		return( tableSecTentGrpInc );
+	}
+
+	public void setTableSecTentGrpInc( ICFSecSecTentGrpIncTable value ) {
+		tableSecTentGrpInc = value;
+	}
+
+	public ICFSecSecTentGrpIncFactory getFactorySecTentGrpInc() {
+		return( factorySecTentGrpInc );
+	}
+
+	public void setFactorySecTentGrpInc( ICFSecSecTentGrpIncFactory value ) {
+		factorySecTentGrpInc = value;
+	}
+
+	public ICFSecSecTentGrpMembTable getTableSecTentGrpMemb() {
+		return( tableSecTentGrpMemb );
+	}
+
+	public void setTableSecTentGrpMemb( ICFSecSecTentGrpMembTable value ) {
+		tableSecTentGrpMemb = value;
+	}
+
+	public ICFSecSecTentGrpMembFactory getFactorySecTentGrpMemb() {
+		return( factorySecTentGrpMemb );
+	}
+
+	public void setFactorySecTentGrpMemb( ICFSecSecTentGrpMembFactory value ) {
+		factorySecTentGrpMemb = value;
+	}
+
 	public ICFSecSecUserTable getTableSecUser() {
 		return( tableSecUser );
 	}
@@ -911,36 +913,36 @@ public class CFIntBuffSchema
 		factorySecUser = value;
 	}
 
-	public ICFSecServiceTable getTableService() {
-		return( tableService );
+	public ICFSecSecUserPWHistoryTable getTableSecUserPWHistory() {
+		return( tableSecUserPWHistory );
 	}
 
-	public void setTableService( ICFSecServiceTable value ) {
-		tableService = value;
+	public void setTableSecUserPWHistory( ICFSecSecUserPWHistoryTable value ) {
+		tableSecUserPWHistory = value;
 	}
 
-	public ICFSecServiceFactory getFactoryService() {
-		return( factoryService );
+	public ICFSecSecUserPWHistoryFactory getFactorySecUserPWHistory() {
+		return( factorySecUserPWHistory );
 	}
 
-	public void setFactoryService( ICFSecServiceFactory value ) {
-		factoryService = value;
+	public void setFactorySecUserPWHistory( ICFSecSecUserPWHistoryFactory value ) {
+		factorySecUserPWHistory = value;
 	}
 
-	public ICFSecServiceTypeTable getTableServiceType() {
-		return( tableServiceType );
+	public ICFSecSecUserPasswordTable getTableSecUserPassword() {
+		return( tableSecUserPassword );
 	}
 
-	public void setTableServiceType( ICFSecServiceTypeTable value ) {
-		tableServiceType = value;
+	public void setTableSecUserPassword( ICFSecSecUserPasswordTable value ) {
+		tableSecUserPassword = value;
 	}
 
-	public ICFSecServiceTypeFactory getFactoryServiceType() {
-		return( factoryServiceType );
+	public ICFSecSecUserPasswordFactory getFactorySecUserPassword() {
+		return( factorySecUserPassword );
 	}
 
-	public void setFactoryServiceType( ICFSecServiceTypeFactory value ) {
-		factoryServiceType = value;
+	public void setFactorySecUserPassword( ICFSecSecUserPasswordFactory value ) {
+		factorySecUserPassword = value;
 	}
 
 	public ICFIntSubProjectTable getTableSubProject() {
@@ -973,54 +975,6 @@ public class CFIntBuffSchema
 
 	public void setFactorySysCluster( ICFSecSysClusterFactory value ) {
 		factorySysCluster = value;
-	}
-
-	public ICFSecTSecGroupTable getTableTSecGroup() {
-		return( tableTSecGroup );
-	}
-
-	public void setTableTSecGroup( ICFSecTSecGroupTable value ) {
-		tableTSecGroup = value;
-	}
-
-	public ICFSecTSecGroupFactory getFactoryTSecGroup() {
-		return( factoryTSecGroup );
-	}
-
-	public void setFactoryTSecGroup( ICFSecTSecGroupFactory value ) {
-		factoryTSecGroup = value;
-	}
-
-	public ICFSecTSecGrpIncTable getTableTSecGrpInc() {
-		return( tableTSecGrpInc );
-	}
-
-	public void setTableTSecGrpInc( ICFSecTSecGrpIncTable value ) {
-		tableTSecGrpInc = value;
-	}
-
-	public ICFSecTSecGrpIncFactory getFactoryTSecGrpInc() {
-		return( factoryTSecGrpInc );
-	}
-
-	public void setFactoryTSecGrpInc( ICFSecTSecGrpIncFactory value ) {
-		factoryTSecGrpInc = value;
-	}
-
-	public ICFSecTSecGrpMembTable getTableTSecGrpMemb() {
-		return( tableTSecGrpMemb );
-	}
-
-	public void setTableTSecGrpMemb( ICFSecTSecGrpMembTable value ) {
-		tableTSecGrpMemb = value;
-	}
-
-	public ICFSecTSecGrpMembFactory getFactoryTSecGrpMemb() {
-		return( factoryTSecGrpMemb );
-	}
-
-	public void setFactoryTSecGrpMemb( ICFSecTSecGrpMembFactory value ) {
-		factoryTSecGrpMemb = value;
 	}
 
 	public ICFSecTenantTable getTableTenant() {
