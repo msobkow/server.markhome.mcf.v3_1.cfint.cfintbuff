@@ -349,6 +349,21 @@ public class CFIntBuffSchema
 		throw new CFLibMustOverrideException( getClass(), "newSchema" );
 	}
 
+	@Override
+	public boolean isMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 tenantId, String permissionName) {
+		return ICFSecSchema.getBackingCFSec().isMemberOfTenantGroup(userId, tenantId, permissionName);
+	}
+
+	@Override
+	public boolean isMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
+		return ICFSecSchema.getBackingCFSec().isMemberOfClusterGroup(userId, clusterId, permissionName);
+	}
+
+	@Override
+	public boolean isMemberOfSystemGroup(CFLibDbKeyHash256 userId, String permissionName) {
+		return ICFSecSchema.getBackingCFSec().isMemberOfSystemGroup(userId, permissionName);
+	}
+
 	/**
 	 *	Get the next ISOCcyIdGen identifier.
 	 *
